@@ -1,0 +1,88 @@
+{
+  "name": "nu-nuc472-nubed-armcc",
+  "version": "1.0.0",
+  "description": "Official mbed build target for the mbed nu-nuc472 development board, using the armcc toolchain.",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "inherits": {
+    "mbed-armcc": "~0.1.0"
+  },
+  "keywords": [
+    "mbed-target:nuc472-nubed",
+    "mbed-official",
+    "mbed",
+    "nuc472-nubed",
+    "nu-nuc472",
+    "nuvoton-nuc472",
+    "nu",
+    "nuvoton",
+    "nuc472",
+    "armcc"
+  ],
+  "config": {
+    "mbed-os": {
+      "net": {
+        "stacks": {
+          "lwip": true,
+		  "nanostack": false
+        }
+      }
+    },
+    "cmsis": {
+      "nvic": {
+        "ram_vector_address": "0x20002000",
+        "flash_vector_address": "0x0",
+        "user_irq_offset": 16,
+        "user_irq_number": 142
+      }
+    },
+    "hardware": {
+        "pins": {
+            "LED1": "PD_8",
+            "LED2": "PD_9",
+            "LED3": "PA_4",
+            "LED_RED": "LED1",
+            "LED_GREEN": "LED2",
+            "LED_BLUE": "LED3",
+            "USBTX": "PD_5",
+            "USBRX": "PD_4",
+            "SW2": "PC_12",
+            "SW3": "PC_13"
+        }
+    }
+  },
+  "similarTo": [
+    "nubed",
+    "nuc472-nubed",
+    "nu-nuc472-nubed",
+    "nu-nuc472",
+    "nuvoton-nuc472",
+    "nuc472",
+    "nu",
+    "nuvoton",
+    "cortex-m4",
+    "armv7-m",
+    "lwip",
+    "lwip-nuc472",
+    "eth-nuc472"
+  ],
+  "toolchain": "CMake/toolchain.cmake",
+  "scripts": {
+    "debug": [
+      "valinor",
+      "--target",
+      "nu-nuc472-nutiny",
+      "$program"
+    ],
+    "test": [
+      "mbed_test_wrapper",
+      "--target",
+      "NUC472-NUTINY",
+      "$program"
+    ]
+  }
+}

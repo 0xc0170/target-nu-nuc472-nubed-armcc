@@ -1,0 +1,30 @@
+
+LR_IROM1 0x00000000 {
+  ER_IROM1 0x00000000 {  ; load address = execution address
+   *(RESET, +First)
+   *(InRoot$$Sections)
+   .ANY (+RO)
+  }
+  
+  ;UVISOR AlignExpr(+0, 16) {  ; 16 byte-aligned
+  ;  uvisor-lib.a (+RW +ZI)
+  ;}
+  
+  ARM_LIB_STACK 0x20000000 EMPTY 0x2000 {
+  }
+  
+  ER_IRAMVEC 0x20002000 EMPTY (4*(16 + 142)) {  ; Reserve for vectors
+  }
+  
+  RW_IRAM1 AlignExpr(+0, 16) {  ; 16 byte-aligned
+   .ANY (+RW +ZI)
+  }
+  
+  ; Extern SRAM for HEAP
+  ARM_LIB_HEAP 0x60000000 EMPTY 0x0100000 {
+  }
+}
+ScatterAssert(LoadLimit(LR_IROM1) <= 0x00080000)    ; 512 KB APROM
+ScatterAssert(ImageLimit(RW_IRAM1) <= 0x20010000)   ; 64 KB SRAM (internal)
+ScatterAssert(ImageLimit(ARM_LIB_HEAP) <= 0x60100000)   ; 1 MB SRAM (external)
+
