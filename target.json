@@ -1,6 +1,6 @@
 {
   "name": "nu-nuc472-nubed-armcc",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Official mbed build target for the mbed nu-nuc472 development board, using the armcc toolchain.",
   "licenses": [
     {
@@ -50,8 +50,30 @@
             "LED_BLUE": "LED3",
             "USBTX": "PD_5",
             "USBRX": "PD_4",
-            "SW2": "PC_12",
-            "SW3": "PC_13"
+            "SW1": "PC_12",
+            "SW2": "PC_13",
+            "D0": "PG_1",
+            "D1": "PG_2",
+            "D2": "PF_9",
+            "D3": "PF_10",
+            "D4": "PC_10",
+            "D5": "PC_11",
+            "D6": "PA_10",
+            "D7": "PA_9",
+            "D8": "PD_7",
+            "D9": "PD_6",
+            "D10": "PD_3",
+            "D11": "PD_2",
+            "D12": "PD_1",
+            "D13": "PD_0",
+            "A0": "PE_1",
+            "A1": "PE_2",
+            "A2": "PE_3",
+            "A3": "PE_4",
+            "A4": "PE_5",
+            "A5": "PE_12",
+            "A6": "PE_13",
+            "A7": "PE_14"
         }
     }
   },
